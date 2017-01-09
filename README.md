@@ -37,9 +37,8 @@ For example, if...
 * Duplicate rules are not currently filtered (they'll cause duplicates in the generated regex).
 * Returns an empty string if there are no rules to be considered.
 
-Directory rules may match files, but file rules may not match directories. The rules provided as input must differentiate between files and directories (directories must have a trailing slash), but the resulting rules are not required to differentiate between them--in other words, if a rule says "ignore the directory 'a/b/c/', the resulting rules may match "a/b/c" even if 'c' is a file).  However, if a rule says "ignore the FILE '
-
-`Program.cs` contains a series of test cases.  The program will print out the regex pattern that was generated, and the test results:
+`ExclusionRule.cs` is the regex-generator.
+`Program.cs` is a test console app that contains a series of test cases.  The program will print out the regex pattern that was generated, and the test results:
 
 	Regex pattern: ^C:[\\/]Projects[\\/]MyProject[\\/]BaseDirectory[\\/](?:(?:App_Data(?!(?:\\config[\\/]?$)|(?:\\[\\/]?$)|(?:[\\/]config[\\/]global(?:$|[\\/]))|(?:\\config\\live[\\/]?$)|(?:\\config[\\/]?$)|(?:\\[\\/]?$)|[\\/]config[\\/]live[\\/]general\.json$)[\\/].+)|(?:assets(?:$|[\\/]))|(?:test[\\/]subdir1[\\/]subdir2(?:$|[\\/]))|(?:a[\\/]b[\\/]c(?!(?:\\d\\e[\\/]?$)|(?:\\d[\\/]?$)|(?:\\[\\/]?$)|(?:[\\/]d[\\/]e[\\/]f(?:$|[\\/]))|(?:\\d\\e\\f\\g\\h\\i[\\/]?$)|(?:\\d\\e\\f\\g\\h[\\/]?$)|(?:\\d\\e\\f\\g[\\/]?$)|(?:\\d\\e\\f[\\/]?$)|(?:\\d\\e[\\/]?$)|(?:\\d[\\/]?$)|(?:\\[\\/]?$)|(?:[\\/]d[\\/]e[\\/]f[\\/]g[\\/]h[\\/]i[\\/]j(?:$|[\\/])))[\\/].+)|(?:a[\\/]b[\\/]c[\\/]d[\\/]e[\\/]f[\\/]g[\\/]h(?!(?:\\i[\\/]?$)|(?:\\[\\/]?$)|(?:[\\/]i[\\/]j(?:$|[\\/])))[\\/].+)|(?:test[\\/]subdir1[\\/]subdir2[\\/]file1$)|(?:test[\\/]subdir1[\\/]subdir2[\\/]file2$))
 	passed exclusion: App_Data/abc.txt
